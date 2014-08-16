@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="chapterThreeSecure" namespace="/chapterThree/secure" extends="struts-default">
+
+        <action name="AdminPortfolio">
+            <result>/manning/chapterThree/AdminPortfolio.jsp</result>
+        </action>
+
+        <action name="AddImage">
+            <result>/manning/chapterThree/ImageUploadForm.jsp</result>
+        </action>
+
+        <action name="ImageUpload" class="manning.chapterThree.ImageUpload">
+            <result>/manning/chapterThree/ImageAdded.jsp</result>
+            <result name="input">/chapterThree/ImageUploadForm.jsp</result>
+        </action>
+
+        <action name="RemoveImage">
+            <result>/manning/chapterThree/RemoveImage.jsp</result>
+        </action>
+
+
+    </package>
+
+    <package name="chapterThreePublic" namespace="/chapterThree" extends="struts-default">
+        <action name="PortfolioHomePage">
+            <result>/manning/chapterThree/PortfolioHomePage.jsp</result>
+        </action>
+
+        <action name="ViewPortfolios">
+            <result>/manning/chapterThree/ViewPortfolios.jsp</result>
+        </action>
+
+        <action name="Registration">
+            <result>/manning/chapterThree/Registration.jsp</result>
+        </action>
+
+        <action name="RegistrationOB">
+            <result>/manning/chapterThree/Registration_OB.jsp</result>
+        </action>
+
+        <action name="RegistrationMD">
+            <result>/manning/chapterThree/Registration_MD.jsp</result>
+        </action>
+
+        <action name="Register" class="manning.chapterThree.Register">
+            <result>/manning/chapterThree/RegistrationSuccess.jsp</result>
+            <result name="input">/manning/chapterThree/Registration.jsp</result>
+        </action>
+        
+        
+        <action name="RegisterOB" class="manning.chapterThree.objectBacked.ObjectBackedRegister">
+            <result>/manning/chapterThree/RegistrationSuccess_OB.jsp</result>
+            <result name="input">/manning/chapterThree/Registration_OB.jsp</result>
+        </action>
+
+        <action name="RegisterMD" class="manning.chapterThree.modelDriven.ModelDrivenRegister">
+            <result>/manning/chapterThree/RegistrationSuccess.jsp</result>
+            <result name="input">/manning/chapterThree/Registration_MD.jsp</result>
+        </action>
+    </package>
+
+</struts>
