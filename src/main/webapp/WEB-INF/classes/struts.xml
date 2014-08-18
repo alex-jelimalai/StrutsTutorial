@@ -6,4 +6,5 @@
     <constant name="struts.devMode" value="true"/>
     <include file="manning/chapterTwo/chapterTwo.xml"/>
     <include file="manning/chapterThree/chapterThree.xml"/>
+    <include file="manning/chapterFour/chapterFour.xml"/>
 </struts>
