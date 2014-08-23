@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <!--  Some of the actions declared may not have been fully implemented yet.  In general,
+          the parts that have been discussed in the corresponding chapter of the book will
+          have been fully implemented.   -->
+
+    <!--
+        This package contains the non-secure portions of the Struts 2 Portfolio.  This allows these
+        public actions to share inheritance of things specialized to the non-secure portions of the application.
+    -->
+
+    <package name="chapterFourPublic" namespace="/chapterFour"
+             extends="struts-default">
+
+        <global-results>
+            <result name="error">/manning/chapterFour/Error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception"
+                               result="error"/>
+        </global-exception-mappings>
+
+        <action name="PortfolioHomePage">
+            <result>/manning/chapterFour/PortfolioHomePage.jsp</result>
+        </action>
+
+        <action name="ViewPortfolios">
+            <result>/manning/chapterFour/ViewPortfolios.jsp</result>
+        </action>
+
+        <action name="LoginForm">
+            <result>/manning/chapterFour/Login.jsp</result>
+        </action>
+
+        <action name="Login" class="manning.chapterFour.Login">
+            <result type="redirect">
+                /chapterFour/secure/AdminPortfolio.action
+            </result>
+            <result name="input">/manning/chapterFour/Login.jsp</result>
+        </action>
+
+        <action name="Registration">
+            <result>/manning/chapterFour/Registration.jsp</result>
+        </action>
+
+        <action name="Register" class="manning.chapterFour.Register">
+            <result>/manning/chapterFour/RegistrationSuccess.jsp</result>
+            <result name="input">/manning/chapterFour/Registration.jsp</result>
+        </action>
+
+        <action name="ErrorProne"
+                class="manning.chapterFour.ErrorProne">
+        </action>
+
+    </package>
+
+
+    <!--
+        This package contains the secure portions of the Struts 2 Portfolio.  This allows these
+        secure actions to share inheritance of things specialized to the secure portions of the application.
+    -->
+    <package name="chapterFourSecure" namespace="/chapterFour/secure"
+             extends="struts-default">
+
+        <!-- We need to define the authentication interceptor and configure a new stack, based upon the
+            builtin default stack.  We will simply add our authentication stack to the top of the default
+            stack and make it the default intercptor reference for the actions in this package.
+        -->
+        <interceptors>
+
+            <interceptor name="authenticationInterceptor"
+                         class="manning.chapterFour.AuthenticationInterceptor"/>
+
+            <interceptor-stack name="secureStack">
+                <interceptor-ref name="authenticationInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+
+        </interceptors>
+
+        <default-interceptor-ref name="secureStack"/>
+
+        <global-results>
+            <result name="login" type="redirect">
+                /chapterFour/LoginForm.action
+            </result>
+            <result name="error">/manning/chapterFour/Error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception"
+                               result="error"/>
+        </global-exception-mappings>
+
+        <action name="AdminPortfolio">
+            <result>/manning/chapterFour/AdminPortfolio.jsp</result>
+        </action>
+
+        <action name="AddImage">
+            <result>/manning/chapterFour/ImageUploadForm.jsp</result>
+        </action>
+
+        <action name="ImageUpload"
+                class="manning.chapterFour.ImageUpload">
+            <param name="fileSystemPath">./portfolioFS/</param>
+            <result>/manning/chapterFour/ImageAdded.jsp</result>
+            <result name="input">
+                /manning/chapterFour/ImageUploadForm.jsp
+            </result>
+        </action>
+
+        <action name="RemoveImage">
+            <result>/manning/chapterFour/ImageRemoved.jsp</result>
+        </action>
+
+    </package>
+
+</struts>
