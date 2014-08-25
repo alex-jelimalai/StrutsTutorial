@@ -85,6 +85,15 @@
             <result name="input">/manning/chapterFive/MapsDataTransferTest.jsp</result>
         </action>
 
+        <action name="CustomConverterTestForm">
+            <result>/manning/chapterFive/CustomConverterTest.jsp</result>
+        </action>
+
+        <action name="CustomConverterTest" class="manning.chapterFive.CustomConverterTest">
+            <result>/manning/chapterFive/CustomConverterSuccess.jsp</result>
+            <result name="input">/manning/chapterFive/CustomConverterTest.jsp</result>
+        </action>
+
     </package>
 
 
