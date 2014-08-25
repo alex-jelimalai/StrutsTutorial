@@ -12,8 +12,8 @@
     <s:textfield name="user.username" label="Username"/>
     <s:password name="user.password" label="Password"/>
     <s:textfield name="user.portfolioName" label="Enter a name for your portfolio"/>
-    <s:textfield name="user.age" label="Enter your age as a double"/>
-    <%--<s:textfield name="user.birthday" label="Enter birthday. (mm/dd/yy)"/>--%>
+    <s:textfield name="user.age" label="Enter your age"/>
+    <s:textfield name="user.birthday" label="Enter birthday. (dd.MM.yy)"/>
     <s:submit/>
 </s:form>
 

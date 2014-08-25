@@ -58,6 +58,33 @@
                 class="manning.chapterFive.ErrorProne">
         </action>
 
+
+        <action name="ArraysDataTransferTestForm">
+            <result>/manning/chapterFive/ArraysDataTransferTest.jsp</result>
+        </action>
+
+        <action name="ArraysDataTransferTest" class="manning.chapterFive.DataTransferTest">
+            <result>/manning/chapterFive/ArraysDataTransferSuccess.jsp</result>
+            <result name="input">/manning/chapterFive/ArraysDataTransferTest.jsp</result>
+        </action>
+
+        <action name="ListsDataTransferTestForm">
+            <result>/manning/chapterFive/ListsDataTransferTest.jsp</result>
+        </action>
+
+        <action name="ListsDataTransferTest" class="manning.chapterFive.DataTransferTest">
+            <result>/manning/chapterFive/ListsDataTransferSuccess.jsp</result>
+            <result name="input">/manning/chapterFive/ListsDataTransferTest.jsp</result>
+        </action>
+        <action name="MapsDataTransferTestForm">
+            <result>/manning/chapterFive/MapsDataTransferTest.jsp</result>
+        </action>
+
+        <action name="MapsDataTransferTest" class="manning.chapterFive.DataTransferTest">
+            <result>/manning/chapterFive/MapsDataTransferSuccess.jsp</result>
+            <result name="input">/manning/chapterFive/MapsDataTransferTest.jsp</result>
+        </action>
+
     </package>
 
 
