@@ -50,35 +50,35 @@
             <result name="input">/manning/ch6/Registration.jsp</result>
         </action>
 
-        <!--<action name="ErrorProne" class="manning.ch6rone">-->
-        <!--</action>-->
+        <action name="ErrorProne" class="manning.ch6.ErrorProne">
+        </action>
 
-        <!--<action name="PropertyTag" class="manning.ch6o">-->
-        <!--<result>/manning/ch6/PropertyTag.jsp</result>-->
-        <!--</action>-->
+        <action name="PropertyTag" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/PropertyTag.jsp</result>
+        </action>
 
-        <!--<action name="SetTag" class="manning.ch6o">-->
-        <!--<result>/manning/ch6/SetTag.jsp</result>-->
-        <!--</action>-->
+        <action name="SetTag" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/SetTag.jsp</result>
+        </action>
 
-        <!--<action name="PushTag" class="manning.ch6o">-->
-        <!--<result>/manning/ch6/PushTag.jsp</result>-->
-        <!--</action>-->
+        <action name="PushTag" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/PushTag.jsp</result>
+        </action>
 
-        <!--<action name="BeanTagWithVar" class="manning.ch6o">-->
-        <!--<result>/manning/ch6/BeanTag1.jsp</result>-->
-        <!--</action>-->
+        <action name="BeanTagWithVar" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/BeanTag1.jsp</result>
+        </action>
 
-        <!--<action name="BeanTagWithValueStack" class="manning.ch6o">-->
-        <!--<result>/manning/ch6/BeanTag2.jsp</result>-->
-        <!--</action>-->
+        <action name="BeanTagWithValueStack" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/BeanTag2.jsp</result>
+        </action>
 
 
-        <!--<action name="ActionTag" class="manning.ch6o">-->
+        <!--<action name="ActionTag" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/ActionTag.jsp</result>-->
         <!--</action>-->
 
-        <!--<action name="ActionTagNoResult" class="manning.ch6o">-->
+        <!--<action name="ActionTagNoResult" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/ActionTagNoResult.jsp</result>-->
         <!--</action>-->
 
@@ -86,31 +86,31 @@
         <!--<result>/manning/ch6/TargetResult.jsp</result>-->
         <!--</action>-->
 
-        <!--<action name="IteratorTag" class="manning.ch6o">-->
+        <!--<action name="IteratorTag" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/IteratorTag.jsp</result>-->
         <!--</action>-->
 
-        <!--<action name="IfElseTags" class="manning.ch6o">-->
+        <!--<action name="IfElseTags" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/IfElseTags.jsp</result>-->
         <!--</action>-->
 
-        <!--<action name="IncludeTag" class="manning.ch6o">-->
+        <!--<action name="IncludeTag" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/IncludeTag.jsp</result>-->
         <!--</action>-->
 
-        <!--<action name="UrlTag" class="manning.ch6o">-->
+        <!--<action name="UrlTag" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/UrlTag.jsp</result>-->
         <!--</action>-->
 
-        <!--<action name="InternationalizationTags" class="manning.ch6o">-->
+        <!--<action name="InternationalizationTags" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/InternationalizationTags.jsp</result>-->
         <!--</action>-->
 
-        <!--<action name="ParamTag" class="manning.ch6o">-->
+        <!--<action name="ParamTag" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/ParamTag.jsp</result>-->
         <!--</action>-->
 
-        <!--<action name="DebugTag" class="manning.ch6o">-->
+        <!--<action name="DebugTag" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/DebugTag.jsp</result>-->
         <!--</action>-->
 

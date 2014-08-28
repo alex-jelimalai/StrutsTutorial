@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -27,7 +26,7 @@ public class PortfolioService  {
 	 */
 	private static Map users = new HashMap ();
 	
-	static {
+	/*static {
 		HashMap portfolios;
 		Portfolio port;
 
@@ -112,7 +111,7 @@ public class PortfolioService  {
 
 		user4.setPortfolios( portfolios );
 		users.put( user4.getUsername(), user4 );
-	}
+	}*/
 
 
 	public boolean userExists ( String username ) {
