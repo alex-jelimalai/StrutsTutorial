@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="ch3Secure" namespace="/ch3/secure" extends="struts-default">
+
+        <action name="AdminPortfolio">
+            <result>/manning/ch3/AdminPortfolio.jsp</result>
+        </action>
+
+        <action name="AddImage">
+            <result>/manning/ch3/ImageUploadForm.jsp</result>
+        </action>
+
+        <action name="ImageUpload" class="manning.ch3.ImageUpload">
+            <result>/manning/ch3/ImageAdded.jsp</result>
+            <result name="input">/ch3/ImageUploadForm.jsp</result>
+        </action>
+
+        <action name="RemoveImage">
+            <result>/manning/ch3/RemoveImage.jsp</result>
+        </action>
+
+
+    </package>
+
+    <package name="ch3Public" namespace="/ch3" extends="struts-default">
+        <action name="PortfolioHomePage">
+            <result>/manning/ch3/PortfolioHomePage.jsp</result>
+        </action>
+
+        <action name="ViewPortfolios">
+            <result>/manning/ch3/ViewPortfolios.jsp</result>
+        </action>
+
+        <action name="Registration">
+            <result>/manning/ch3/Registration.jsp</result>
+        </action>
+
+        <action name="RegistrationOB">
+            <result>/manning/ch3/Registration_OB.jsp</result>
+        </action>
+
+        <action name="RegistrationMD">
+            <result>/manning/ch3/Registration_MD.jsp</result>
+        </action>
+
+        <action name="Register" class="manning.ch3.Register">
+            <result>/manning/ch3/RegistrationSuccess.jsp</result>
+            <result name="input">/manning/ch3/Registration.jsp</result>
+        </action>
+        
+        
+        <action name="RegisterOB" class="manning.ch3.objectBacked.ObjectBackedRegister">
+            <result>/manning/ch3/RegistrationSuccess_OB.jsp</result>
+            <result name="input">/manning/ch3/Registration_OB.jsp</result>
+        </action>
+
+        <action name="RegisterMD" class="manning.ch3.modelDriven.ModelDrivenRegister">
+            <result>/manning/ch3/RegistrationSuccess.jsp</result>
+            <result name="input">/manning/ch3/Registration_MD.jsp</result>
+        </action>
+    </package>
+
+</struts>

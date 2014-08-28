@@ -16,7 +16,7 @@ import org.apache.struts2.convention.annotation.ResultPath;
 @Namespace("/annotation")
 @Action("/annotatedHello")
 @ResultPath(value = "/")
-@Result(name = "success", location = "/manning/chapterTwo/Annotation.jsp")
+@Result(name = "success", location = "/manning/ch2/Annotation.jsp")
 public class AnnotatedHelloAction extends ActionSupport {
     private String msg = "JavaBeat - Struts2 annotation example";
 

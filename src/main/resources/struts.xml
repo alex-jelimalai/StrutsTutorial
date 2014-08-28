@@ -4,8 +4,9 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
     <constant name="struts.devMode" value="true"/>
-    <include file="manning/chapterTwo/chapterTwo.xml"/>
-    <include file="manning/chapterThree/chapterThree.xml"/>
-    <include file="manning/chapterFour/chapterFour.xml"/>
-    <include file="manning/chapterFive/chapterFive.xml"/>
+    <include file="manning/ch2/chapterTwo.xml"/>
+    <include file="manning/ch3/chapterThree.xml"/>
+    <include file="manning/ch4/chapterFour.xml"/>
+    <include file="manning/ch5/chapterFive.xml"/>
+    <include file="manning/ch6/chapterSix.xml"/>
 </struts>

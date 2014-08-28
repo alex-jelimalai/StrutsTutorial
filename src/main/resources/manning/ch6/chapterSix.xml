@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <!--
+                This package contains the non-secure portions of the Struts 2 Portfolio.  This allows these
+                public actions to share inheritance of things specialized to the non-secure portions of the application.
+    -->
+
+    <package name="ch6Public" namespace="/ch6" extends="struts-default">
+
+        <global-results>
+            <result name="error">/manning/ch6/Error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="PortfolioHomePage">
+            <result>/manning/ch6/PortfolioHomePage.jsp</result>
+        </action>
+
+        <action name="ViewPortfolios" class="manning.ch6.ViewPortfolios">
+            <result>/manning/ch6/ViewPortfolios.jsp</result>
+        </action>
+
+        <action name="ViewPortfolio">
+            <result>/manning/ch6/ViewPortfolio.jsp</result>
+        </action>
+
+        <action name="LoginForm">
+            <result>/manning/ch6/Login.jsp</result>
+        </action>
+
+        <action name="Login" class="manning.ch6.Login">
+            <result type="redirect">/ch6/secure/AdminPortfolio.action</result>
+            <result name="input">/manning/ch6/Login.jsp</result>
+        </action>
+
+        <action name="Registration">
+            <result>/manning/ch6/Registration.jsp</result>
+        </action>
+
+        <action name="Register" class="manning.ch6.Register">
+            <result>/manning/ch6/RegistrationSuccess.jsp</result>
+            <result name="input">/manning/ch6/Registration.jsp</result>
+        </action>
+
+        <!--<action name="ErrorProne" class="manning.ch6rone">-->
+        <!--</action>-->
+
+        <!--<action name="PropertyTag" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/PropertyTag.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="SetTag" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/SetTag.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="PushTag" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/PushTag.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="BeanTagWithVar" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/BeanTag1.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="BeanTagWithValueStack" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/BeanTag2.jsp</result>-->
+        <!--</action>-->
+
+
+        <!--<action name="ActionTag" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/ActionTag.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="ActionTagNoResult" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/ActionTagNoResult.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="TargetAction" class="manning.ch6Action">-->
+        <!--<result>/manning/ch6/TargetResult.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="IteratorTag" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/IteratorTag.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="IfElseTags" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/IfElseTags.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="IncludeTag" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/IncludeTag.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="UrlTag" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/UrlTag.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="InternationalizationTags" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/InternationalizationTags.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="ParamTag" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/ParamTag.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="DebugTag" class="manning.ch6o">-->
+        <!--<result>/manning/ch6/DebugTag.jsp</result>-->
+        <!--</action>-->
+
+    </package>
+
+
+    <!--
+                This package contains the secure portions of the Struts 2 Portfolio.  This allows these
+                secure actions to share inheritance of things specialized to the secure portions of the application.
+    -->
+    <package name="ch6Secure" namespace="/ch6/secure" extends="struts-default">
+
+        <!-- We need to define the authentication interceptor and configure a new stack, based upon the
+                    builtin default stack.  We will simply add our authentication stack to the top of the default
+                    stack and make it the default intercptor reference for the actions in this package.
+        -->
+        <interceptors>
+
+            <interceptor name="authenticationInterceptor" class="manning.ch6.utils.AuthenticationInterceptor"/>
+
+            <interceptor-stack name="secureStack">
+                <interceptor-ref name="authenticationInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+
+        </interceptors>
+
+        <default-interceptor-ref name="secureStack"/>
+
+        <global-results>
+            <result name="login" type="redirect">/ch6/LoginForm.action</result>
+            <result name="error">/manning/ch6/Error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="AdminPortfolio">
+            <result>/manning/ch6/AdminPortfolio.jsp</result>
+        </action>
+
+        <action name="AddImage">
+            <result>/manning/ch6/ImageUploadForm.jsp</result>
+        </action>
+
+        <action name="ImageUpload" class="manning.ch6.ImageUpload">
+            <param name="fileSystemPath">./portfolioFS/</param>
+            <result>/manning/ch6/ImageAdded.jsp</result>
+            <result name="input">/manning/ch6/ImageUploadForm.jsp</result>
+        </action>
+
+        <action name="RemoveImage">
+            <result>/manning/ch6/ImageRemoved.jsp</result>
+        </action>
+
+    </package>
+
+</struts>
