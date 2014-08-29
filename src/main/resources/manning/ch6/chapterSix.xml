@@ -98,9 +98,9 @@
             <result>/manning/ch6/IncludeTag.jsp</result>
         </action>
 
-        <!--<action name="UrlTag" class="manning.ch6.TagDemo">-->
-        <!--<result>/manning/ch6/UrlTag.jsp</result>-->
-        <!--</action>-->
+        <action name="UrlTag" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/UrlTag.jsp</result>
+        </action>
 
         <!--<action name="InternationalizationTags" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/InternationalizationTags.jsp</result>-->
