@@ -2,20 +2,21 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 
-	<head>
+<head>
     <title>Portfolio Registration</title>
-	</head>
+</head>
 
-	<body>
-		<h4>Complete and submit the form to create your own portfolio.</h4> 
-				<s:form action="Register">
-    	  <s:textfield name="user.username" label="Username"/>
-    	  <s:password name="user.password" label="Password"/>
-    	  <s:textfield name="user.portfolioName" label="Enter a name for your portfolio"/>
-    	<s:submit/>
-		</s:form>	
-	  
-		
-	</body>
-	
+<body>
+<h4>Complete and submit the form to create your own portfolio.</h4>
+<s:form action="Register">
+    <s:textfield name="user.username" label="Username"/>
+    <s:password name="user.password" label="Password"/>
+    <s:textfield name="user.portfolioName" label="Enter a name for your portfolio"/>
+    <s:textfield name="user.age" label="Enter your age"/>
+    <s:submit/>
+</s:form>
+
+
+</body>
+
 </html>

@@ -90,9 +90,9 @@
             <result>/manning/ch6/IteratorTag.jsp</result>
         </action>
 
-        <!--<action name="IfElseTags" class="manning.ch6.TagDemo">-->
-        <!--<result>/manning/ch6/IfElseTags.jsp</result>-->
-        <!--</action>-->
+        <action name="IfElseTags" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/IfElseTags.jsp</result>
+        </action>
 
         <!--<action name="IncludeTag" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/IncludeTag.jsp</result>-->
