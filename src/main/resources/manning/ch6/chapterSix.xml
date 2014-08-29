@@ -94,9 +94,9 @@
             <result>/manning/ch6/IfElseTags.jsp</result>
         </action>
 
-        <!--<action name="IncludeTag" class="manning.ch6.TagDemo">-->
-        <!--<result>/manning/ch6/IncludeTag.jsp</result>-->
-        <!--</action>-->
+        <action name="IncludeTag" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/IncludeTag.jsp</result>
+        </action>
 
         <!--<action name="UrlTag" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/UrlTag.jsp</result>-->
