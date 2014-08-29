@@ -74,17 +74,17 @@
         </action>
 
 
-        <!--<action name="ActionTag" class="manning.ch6.TagDemo">-->
-        <!--<result>/manning/ch6/ActionTag.jsp</result>-->
-        <!--</action>-->
+        <action name="ActionTag" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/ActionTag.jsp</result>
+        </action>
 
-        <!--<action name="ActionTagNoResult" class="manning.ch6.TagDemo">-->
-        <!--<result>/manning/ch6/ActionTagNoResult.jsp</result>-->
-        <!--</action>-->
+        <action name="ActionTagNoResult" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/ActionTagNoResult.jsp</result>
+        </action>
 
-        <!--<action name="TargetAction" class="manning.ch6Action">-->
-        <!--<result>/manning/ch6/TargetResult.jsp</result>-->
-        <!--</action>-->
+        <action name="TargetAction" class="manning.ch6.TargetAction">
+            <result>/manning/ch6/TargetResult.jsp</result>
+        </action>
 
         <!--<action name="IteratorTag" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/IteratorTag.jsp</result>-->
