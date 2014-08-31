@@ -102,13 +102,13 @@
             <result>/manning/ch6/UrlTag.jsp</result>
         </action>
 
-        <!--<action name="InternationalizationTags" class="manning.ch6.TagDemo">-->
-        <!--<result>/manning/ch6/InternationalizationTags.jsp</result>-->
-        <!--</action>-->
+        <action name="InternationalizationTags" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/InternationalizationTags.jsp</result>
+        </action>
 
-        <!--<action name="ParamTag" class="manning.ch6.TagDemo">-->
-        <!--<result>/manning/ch6/ParamTag.jsp</result>-->
-        <!--</action>-->
+        <action name="ParamTag" class="manning.ch6.TagDemo">
+            <result>/manning/ch6/ParamTag.jsp</result>
+        </action>
 
         <!--<action name="DebugTag" class="manning.ch6.TagDemo">-->
         <!--<result>/manning/ch6/DebugTag.jsp</result>-->
