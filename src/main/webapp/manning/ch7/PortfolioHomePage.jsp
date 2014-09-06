@@ -41,7 +41,7 @@
 <hr/>
 <h4><p align='center'>Simple Ui Tags in this chapter</p></h4>
 <hr/>
-<s:textfield name="username" label="Username"/>
+<s:textfield key="username"/>
 
 </body>
 
