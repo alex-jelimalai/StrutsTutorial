@@ -41,8 +41,13 @@
 <hr/>
 <h4><p align='center'>Simple Ui Tags in this chapter</p></h4>
 <hr/>
-<s:textfield key="username"/>
-
+<s:form>
+    <s:label value="Ui components in Struts 2"/>
+    <s:textfield key="username"/>
+    <s:password key="password"/>
+    <s:textarea key="personalInfo" cols="10" rows="6"/>
+    <s:submit value="Logheaza"/>
+</s:form>
 </body>
 
 </html>
