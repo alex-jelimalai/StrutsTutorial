@@ -27,6 +27,21 @@
     <s:submit value="Browse"/>
 </s:form>
 
+<p>Radio component</p>
+<s:form action="SelectPortfolio">
+    <s:radio name="username" list='users' listKey="username"
+             listValue="username" label="Select an artist"/>
+    <s:submit value="Browse"/>
+</s:form>
+
+
+<p>Radio component</p>
+<s:form action="SelectPortfolio">
+    <s:checkboxlist name="username" list='users' listKey="username"
+                    listValue="username" label="Select an artist"/>
+    <s:submit value="Browse"/>
+</s:form>
+
 <hr>
 <h5>View a Portfolio ( Demo of doubleselect component. )</h5>
 
@@ -46,6 +61,7 @@
     <s:textfield key="username"/>
     <s:password key="password"/>
     <s:textarea key="personalInfo" cols="10" rows="6"/>
+    <s:select name="user.name" list="{'Mike','Payal','Silas'}"/>
     <s:submit value="Logheaza"/>
 </s:form>
 </body>
