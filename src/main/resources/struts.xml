@@ -10,4 +10,5 @@
     <include file="manning/ch5/chapterFive.xml"/>
     <include file="manning/ch6/chapterSix.xml"/>
     <include file="manning/ch7/chapterSeven.xml"/>
+    <include file="manning/ch8/chapterEight.xml"/>
 </struts>
