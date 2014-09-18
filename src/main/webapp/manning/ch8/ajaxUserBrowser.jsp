@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <script src="ajaxUserBrowser.js" type="text/javascript"/>
+    <script src="ajaxUserBrowser.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/ajaxUserBrowser.css"/>
 </head>
 <body>

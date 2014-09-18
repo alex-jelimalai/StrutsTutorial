@@ -10,7 +10,7 @@
        public actions to share inheritance of things specialized to the non-secure portions of the application.
     -->
 
-    <package name="ch8Public" namespace="/ch8" extends="struts-default">
+    <package name="ch8Public" namespace="/manning/ch8" extends="struts-default">
 
         <result-types>
             <result-type name="customJSON" class="manning.ch8.JSONResult"/>
@@ -93,7 +93,7 @@
                 This package contains the secure portions of the Struts 2 Portfolio.  This allows these
                 secure actions to share inheritance of things specialized to the secure portions of the application.
     -->
-    <package name="ch8Secure" namespace="/ch8/secure" extends="struts-default">
+    <package name="ch8Secure" namespace="/manning/ch8/secure" extends="struts-default">
 
         <!-- We need to define the authentication interceptor and configure a new stack, based upon the
                     builtin default stack.  We will simply add our authentication stack to the top of the default
