@@ -21,7 +21,10 @@
     <s:textfield name="favoriteColor" label="Enter your favorite color"/>
     <s:submit/>
 </s:form>
-
+<s:form action="SendUserToSearchEngineAction">
+    <s:textfield name="defaultUsername"/>
+    <s:submit value="Use Google"/>
+</s:form>
 <hr>
 
 

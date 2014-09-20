@@ -86,6 +86,10 @@
         <action name="AjaxRetrieveUser" class="manning.ch8.RetrieveUser">
             <result type="customJSON">artist</result>
         </action>
+
+        <action name="SendUserToSearchEngineAction" class="manning.ch8.SearchEngineAction">
+            <result type='redirect'>https://www.google.com/search?q=${defaultUsername}</result>
+        </action>
     </package>
 
 
