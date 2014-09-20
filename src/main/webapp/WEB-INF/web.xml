@@ -26,6 +26,17 @@
         <url-pattern>/simple</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>anotherServlet</servlet-name>
+        <servlet-class>manning.ch8.AnotherServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>anotherServlet</servlet-name>
+        <url-pattern>/anotherServlet</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
