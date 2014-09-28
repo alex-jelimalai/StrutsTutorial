@@ -10,8 +10,10 @@
 <body>
 <h4>Complete and submit the form to create your own portfolio.</h4>
 <s:form action="Register">
+    <s:actionerror />
     <s:textfield name="username" label="Username"/>
     <s:password name="password" label="Password"/>
+    <s:textfield name="email" label="Email"/>
     <s:textfield name="portfolioName" label="Enter a name for your portfolio"/>
     <s:checkbox name="receiveJunkMail" fieldValue="true" label="Check to receive junk mail"/>
     <s:submit/>
