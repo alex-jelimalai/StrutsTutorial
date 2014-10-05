@@ -2,7 +2,6 @@ package manning.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,10 +9,9 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
+import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 /*
@@ -24,10 +22,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
+    private SessionFactory sessionFactory;
+
+
     public boolean userExists(String username) {
 
-        Query query = entityManager.createQuery("from User where username = :username").setParameter("username", username);
-        List result = query.getResultList();
+        org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery("from User where username = :username").setParameter("username", username);
+        List result = query.list();
 
         return !result.isEmpty();
 
@@ -35,13 +36,13 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
 
     public void updateUser(User user) {
-        entityManager.merge(user);
+        sessionFactory.getCurrentSession().merge(user);
 
     }
 
 
     public void updatePortfolio(Portfolio port) {
-        entityManager.merge(port);
+        sessionFactory.getCurrentSession().merge(port);
 
     }
 
@@ -64,9 +65,9 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
         User validUser = null;
 
-        Query query = entityManager.createQuery("from User where username = :username").setParameter("username", username);
+        org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery("from User where username = :username").setParameter("username", username);
 
-        List result = query.getResultList();
+        List result = query.list();
         if (!result.isEmpty()) {
 
             User user = (User)result.get(0);
@@ -84,9 +85,9 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public Collection getUsers() {
 
-        Query query = entityManager.createQuery("from User");
+        org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery("from User");
 
-        return query.getResultList();
+        return query.list();
 
     }
 
@@ -107,10 +108,10 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public User getUser(String username) {
 
-        Query query = entityManager.createQuery("from User where username = :username");
+        org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery("from User where username = :username");
         query.setParameter("username", username);
 
-        User user = (User)query.getSingleResult();
+        User user = (User)query.uniqueResult();
         return user;
 
     }
@@ -118,7 +119,7 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public User getUser(Long id) {
 
-        User user = entityManager.find(User.class, id);
+        User user = (User)sessionFactory.getCurrentSession().get(User.class, id);
         return user;
 
     }
@@ -126,7 +127,7 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public Portfolio getPortfolio(Long id) {
 
-        Portfolio port = entityManager.find(Portfolio.class, id);
+        Portfolio port = (Portfolio)sessionFactory.getCurrentSession().get(Portfolio.class, id);
         return port;
 
     }
@@ -136,12 +137,12 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public String getDefaultUser() {
 
-        Query query = entityManager.createQuery("from User");
+        org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery("from User");
 
         String defaultUsername = null;
 
-        if (!query.getResultList().isEmpty()) {
-            User defaultUser = (User)query.getResultList().get(0);
+        if (!query.list().isEmpty()) {
+            User defaultUser = (User)query.list().get(0);
             if (defaultUser != null)
                 defaultUsername = defaultUser.getUsername();
         }
@@ -152,22 +153,14 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public void persistUser(User user) {
 
-        entityManager.persist(user);
+        sessionFactory.getCurrentSession().persist(user);
 
     }
 
-    private EntityManager entityManager;
 
-
-    @PersistenceContext
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
-
+    @Override
     public boolean contains(User user) {
-        return entityManager.contains(user);
-
+        return sessionFactory.getCurrentSession().contains(user);
     }
 
     /*
@@ -184,6 +177,10 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public String getFileSystemHome() {
         return this.fileSystemHomePath;
+    }
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
     }
 
 
