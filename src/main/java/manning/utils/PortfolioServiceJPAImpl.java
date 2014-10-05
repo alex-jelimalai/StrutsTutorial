@@ -9,8 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.persistence.PersistenceContext;
-
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,7 +26,7 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public boolean userExists(String username) {
 
-        org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery("from User where username = :username").setParameter("username", username);
+        Query query = sessionFactory.getCurrentSession().createQuery("from User where username = :username").setParameter("username", username);
         List result = query.list();
 
         return !result.isEmpty();
@@ -65,7 +64,7 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
         User validUser = null;
 
-        org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery("from User where username = :username").setParameter("username", username);
+        Query query = sessionFactory.getCurrentSession().createQuery("from User where username = :username").setParameter("username", username);
 
         List result = query.list();
         if (!result.isEmpty()) {
@@ -85,7 +84,7 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public Collection getUsers() {
 
-        org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery("from User");
+        Query query = sessionFactory.getCurrentSession().createQuery("from User");
 
         return query.list();
 
@@ -108,7 +107,7 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public User getUser(String username) {
 
-        org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery("from User where username = :username");
+        Query query = sessionFactory.getCurrentSession().createQuery("from User where username = :username");
         query.setParameter("username", username);
 
         User user = (User)query.uniqueResult();
@@ -137,7 +136,7 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
 
     public String getDefaultUser() {
 
-        org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery("from User");
+        Query query = sessionFactory.getCurrentSession().createQuery("from User");
 
         String defaultUsername = null;
 
@@ -178,6 +177,7 @@ public class PortfolioServiceJPAImpl implements PortfolioServiceInterface {
     public String getFileSystemHome() {
         return this.fileSystemHomePath;
     }
+
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;

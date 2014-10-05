@@ -2,49 +2,55 @@ package manning.ch10;
 
 
 import com.opensymphony.xwork2.ActionSupport;
-import manning.ch8.utils.PortfolioService;
-import manning.ch8.utils.User;
+import manning.utils.PortfolioServiceInterface;
+import manning.utils.User;
 
 /*
  *
  */
 
-public class RetrieveUser extends ActionSupport {
+public class RetrieveUser extends ActionSupport  {
 
-    private String username;
-    private Object jsonModel;
+	public String execute(){
+		
+		User user = getPortfolioService().getUser( getUsername() );
+		setJsonModel(user);
+		
+		return SUCCESS;
+	}
+	private String username;
+	
+	public String getUsername() {
+		return username;
+	}
 
-    public String execute() {
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	private Object jsonModel;
+	
+	public Object getJsonModel() {
+		return jsonModel;
+	}
 
-        User user = getPortfolioService().getUser(getUsername());
-        setJsonModel(user);
 
-        return SUCCESS;
-    }
+	public void setJsonModel(Object jsonModel) {
+		this.jsonModel = jsonModel;
+	}
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Object getJsonModel() {
-        return jsonModel;
-    }
-
-    public void setJsonModel(Object jsonModel) {
-        this.jsonModel = jsonModel;
-    }
-
-    /*
-     * Simple way to retrieve our business logic and data persistence object.
-     * Late versions of the portfolio app will integrate with more
-     * sophisticated technologies for these services.
-     */
-    public PortfolioService getPortfolioService() {
-        return new PortfolioService();
-    }
+	
+	private PortfolioServiceInterface portfolioService;
+	
+	public PortfolioServiceInterface getPortfolioService( ) 	{
+		
+		return portfolioService;
+		
+	}
+	public void setPortfolioService( PortfolioServiceInterface portService){
+		portfolioService = portService;
+	}
+	
+	
 
 }

@@ -2,10 +2,12 @@ package manning.ch10;
 
 
 import java.io.File;
-import java.io.IOException;
+
+import manning.utils.PortfolioServiceInterface;
+import manning.utils.User;
 
 import com.opensymphony.xwork2.ActionSupport;
-import manning.ch10.utils.PortfolioService;
+import com.opensymphony.xwork2.Preparable;
 
 /*
  * This action uploads an image file using the default fileUpload 
@@ -15,69 +17,76 @@ import manning.ch10.utils.PortfolioService;
  */
 
 public class ImageUpload extends ActionSupport {
+	
 
+	public String execute()throws Exception{
+		
+		/*
+		 * Add the image to the portfolio.
+		 */
+		
+		getPortfolioService().addImage( getPic(), getPicFileName(), id );
+		return SUCCESS;
+		
+	}
+	
+	/* JavaBeans Properties to Receive Request Parameters */
 
-    File pic;
+	File pic;
+	String picContentType;
+	String picFileName;
+	String id;
+	
+	public String getId() {
+		return id;
+	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    /* JavaBeans Properties to Receive Request Parameters */
-    String picContentType;
-    String picFileName;
-    String fileSystemPath;
+	public File getPic() {
+		return pic;
+	}
+	
+	public void setPic(File pic) {
+	    this.pic = pic;
+	    System.out.println("file = " + pic);
+	}
+	
+	public String getPicContentType() {
+		return picContentType;
+	}
+	
+	public void setPicContentType(String picContentType) {
+	    this.picContentType = picContentType;
+	    System.out.println("content type = " + picContentType);
+	}
+	
+	public void setPicFileName(String picFileName) {
+		this.picFileName = picFileName;
+		 System.out.println("file name = " + picFileName);
+	}
+	public String getPicFileName() {
+		return picFileName;
+		
+	}
+	
+	/*
+	 * Field with getter and setter for PortfolioService object, which will be injected
+	 * via Spring.	
+	 */
+	
+	PortfolioServiceInterface portfolioService;
 
-    public String execute() {
-
-
-        //add image to account
-
-        try {
-            getPortfolioService().addImage(getPic(), getPicFileName(), fileSystemPath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return SUCCESS;
-
-    }
-
-    public File getPic() {
-        return pic;
-    }
-
-    public void setPic(File pic) {
-        this.pic = pic;
-    }
-
-    public String getPicContentType() {
-        return picContentType;
-    }
-
-    void setPicContentType(String picContentType) {
-        this.picContentType = picContentType;
-    }
-
-    public String getPicFileName() {
-        return picFileName;
-    }
-
-    public void setPicFileName(String picFileName) {
-        this.picFileName = picFileName;
-    }
-
-    public void setFileSystemPath(String fileSystemPath) {
-        this.fileSystemPath = fileSystemPath;
-    }
-
-    /*
-     * Simple way to retrieve our business logic and data persistence object.
-     * Late versions of the portfolio app will integrate with more
-     * sophisticated technologies for these services.
-     */
-    public PortfolioService getPortfolioService() {
-
-        return new PortfolioService();
-
-    }
-
-
+	public PortfolioServiceInterface getPortfolioService( ) 	{
+		
+		return portfolioService;
+	
+	}
+	
+	public void setPortfolioService(PortfolioServiceInterface portfolioService) {
+		this.portfolioService = portfolioService;
+	}
+	
 }

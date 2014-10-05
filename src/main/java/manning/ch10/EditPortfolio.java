@@ -1,26 +1,34 @@
 package manning.ch10;
 
 
-import com.opensymphony.xwork2.ActionSupport;
 import manning.utils.Portfolio;
 import manning.utils.PortfolioServiceInterface;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 /*
- * This action retrieves the data model for viewing a particular portfolio. 
+ * Create Portfolio allows the user to add another portfolio to their 
+ * account. 
  */
 
-public class ViewPortfolio extends ActionSupport  {
+public class EditPortfolio extends ActionSupport {
+
 
 	public String execute(){
 		
-		setPortfolio(  getPortfolioService().getPortfolio(id) );
-		System.out.println("Portfoli pics = " + portfolio.getPics().size());
+		/*
+		 * Create and move the data onto our application domain object, user.
+		 */
 		
+		portfolio = getPortfolioService().getPortfolio(id);
+				
 		return SUCCESS;
 	}
-
+	
+	
 	/* JavaBeans Properties to Receive Request Parameters */
 	
+
 	private Long id;
 	private Portfolio portfolio;
 	
@@ -28,19 +36,17 @@ public class ViewPortfolio extends ActionSupport  {
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 	public Portfolio getPortfolio() {
 		return portfolio;
 	}
-
 	public void setPortfolio(Portfolio portfolio) {
 		this.portfolio = portfolio;
 	}
-		
+	
 	/*
 	 * Field with getter and setter for PortfolioService object, which will be injected
 	 * via Spring.	
@@ -58,6 +64,4 @@ public class ViewPortfolio extends ActionSupport  {
 		this.portfolioService = portfolioService;
 	}
 	
-	
-
 }

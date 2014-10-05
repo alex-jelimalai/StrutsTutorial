@@ -10,6 +10,10 @@
             <param name="minLength">6</param>
             <message>Your password should be 6-10 characters.</message>
         </field-validator>
+        <field-validator type="passwordintegrity">
+            <param name="specialCharacters">$!@#?</param>
+            <message>Your password must contain one letter, one number, and one of the following "${specialCharacters}".</message>
+        </field-validator>
     </field>
     <field name="username">
         <field-validator type="requiredstring">
